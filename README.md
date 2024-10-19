@@ -1,3 +1,6 @@
+## Alanine Dipeptide Conformational Analysis
+[View Full Report](COMPUTATIONAL STUDY OF ALANINE DIPEPTIDE CONFORMATIONS.pdf)
+
 Overview
 
 This project involves the computational study of different conformations of alanine dipeptide, including alpha-helix, beta-sheet, and left-handed alpha conformations. Using the ORCA quantum chemistry software, we optimized the structures and calculated Gibbs free energies to compare their stabilities. MATLAB was used for data analysis and visualization, including the creation of energy landscapes.
