@@ -1,5 +1,5 @@
 ## Alanine Dipeptide Conformational Analysis
-[View Full Report](COMPUTATIONAL STUDY OF ALANINE DIPEPTIDE CONFORMATIONS.pdf)
+[COMPUTATIONAL STUDY OF ALANINE DIPEPTIDE CONFORMATIONS.pdf](https://github.com/sjar1i/alanine-dipeptide-analysis/blob/main/COMPUTATIONAL%20STUDY%20OF%20ALANINE%20DIPEPTIDE%20CONFORMATIONS.pdf)
 
 Overview
 
