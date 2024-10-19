@@ -1,0 +1,47 @@
+clc
+clear
+
+% Define angles and corresponding Gibbs energy values
+conformation_names = {'Alpha Helix', 'Beta Sheet', 'Left-Handed Alpha'};
+phi_values = [-60, -120]; % Ensure unique phi angles
+psi_values = [-40, 120];    % Psi angles for the conformations
+energies = [-492.33051949, -492.33186378]; % Gibbs free energy values
+
+% Angle grid setup
+phi = -180:10:180; % Phi angles
+psi = -180:10:180; % Psi angles
+[PHI, PSI] = meshgrid(phi, psi);
+
+% Interpolate the energies to create a smooth surface
+GibbsEnergy = griddata(phi_values, psi_values, energies, PHI, PSI, 'linear');
+
+% Check dimensions
+if size(GibbsEnergy, 1) ~= size(PHI, 1) || size(GibbsEnergy, 2) ~= size(PHI, 2)
+    error('The dimensions of PHI, PSI, and GibbsEnergy do not match.');
+end
+
+% Create the 3D surface plot
+figure;
+surf(PHI, PSI, GibbsEnergy, 'EdgeColor', 'none'); % 3D surface plot
+colorbar; % Add color bar
+title('Gibbs Free Energy Landscape of Alanine Dipeptide', 'FontSize', 14, 'FontWeight', 'bold');
+xlabel('\phi Angle (degrees)', 'FontSize', 12);
+ylabel('\psi Angle (degrees)', 'FontSize', 12);
+zlabel('Gibbs Free Energy (Eh)', 'FontSize', 12);
+view(45, 30); % Adjust view angle
+grid on;
+
+% Overlay the specific energy points
+hold on;
+scatter3(phi_values, psi_values, energies, 100, 'filled', 'MarkerFaceColor', 'r', 'MarkerEdgeColor', 'k');
+
+% Annotate the points
+for i = 1:length(conformation_names)
+    text(phi_values(i), psi_values(i), energies(i), conformation_names{i}, ...
+        'VerticalAlignment', 'bottom', 'HorizontalAlignment', 'right', ...
+        'FontSize', 10, 'FontWeight', 'bold', 'Color', 'k');
+end
+
+% Adjust the colormap for better visualization
+colormap(jet); % Change colormap
+hold off;
